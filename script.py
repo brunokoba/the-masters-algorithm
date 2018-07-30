@@ -3,7 +3,6 @@ import requests
 from bs4 import BeautifulSoup as soup
 import re
 import csv
-import io
 import pandas as pd
 
 # Initializing writer 
@@ -23,7 +22,6 @@ univ_pages = []
 records = []
 
 # Setting agent for scraping authentication
-agent = {"User-Agent":'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36'}
 headers = {'User-Agent':'Mozilla/5.0'}
 
 # Loop over the list of URLs
@@ -47,6 +45,10 @@ for url in urls:
         enrollments.append(enrollment.string)
         print(enrollments)
         
+# Add titles
+titles = ['Rank', 'School', 'Location', 'USNews URL']
+writer.writerow(titles)
+
 # Add data to the .csv file row by row
 for i in range(len(names)):
     records.append(i+1)
