@@ -1,4 +1,4 @@
-requests
-bs4
-pandas
-html5lib
+requests==2.19.1
+bs4==0.0.1
+pandas==0.23.3
+html5lib==1.0.1
